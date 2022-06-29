@@ -1,0 +1,92 @@
+<h2 class="contact-title">
+  Entre em contato
+</h2>
+<section class="contact-container">
+  <form class="contact-form" [formGroup]="formContato" (ngSubmit)="enviarMensagem()">
+    <input type="text" placeholder="Digite seu nome"
+    formControlName="nome" [class.valid]="formContato.controls['nome'].valid"
+    [class.invalid]="formContato.controls['nome'].invalid && (
+      formContato.controls['nome'].dirty || formContato.controls['nome'].touched)"
+    >
+    <div class="mensagemFeedback" *ngIf="formContato.controls['nome'].invalid && (
+      formContato.controls['nome'].dirty || formContato.controls['nome'].touched)">
+      <small class="error-message" *ngIf="formContato.controls['nome'].hasError('minlength')">
+          Tamanho minimo não atingido  - 4 caracteres
+      </small>
+      <small class="error-message" *ngIf="formContato.controls['nome'].hasError('required')">
+        Campo obrigatorio
+    </small>
+    </div>
+
+    <!-- ASSUNTO -->
+    <input type="text" placeholder="Digite o assunto" formControlName="assunto"
+    [class.valid]="formContato.controls['assunto'].valid"
+    [class.invalid]="formContato.controls['assunto'].invalid && (
+      formContato.controls['assunto'].dirty || formContato.controls['assunto'].touched)"
+    >
+    <div class="mensagemFeedback" *ngIf="formContato.controls['assunto'].invalid && (
+      formContato.controls['assunto'].dirty || formContato.controls['assunto'].touched)">
+      <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('minlength')">
+          Tamanho minimo não atingido  - 10 caracteres
+      </small>
+      <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('required')">
+        Campo obrigatorio
+    </small>
+    </div>
+
+    <!-- TELEFONE -->
+    <input type="tel" placeholder='(00) 91234-1234' mask="(00)00000-000" formControlName='telefone'
+    [class.valid]="formContato.controls['telefone'].valid"
+    [class.invalid]="formContato.controls['telefone'].invalid && (
+      formContato.controls['telefone'].dirty || formContato.controls['telefone'].touched)">
+
+    <div class="mensagemFeedback" *ngIf="formContato.controls['telefone'].invalid && (
+      formContato.controls['telefone'].dirty || formContato.controls['telefone'].touched)">
+      <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('minlength')">
+          Telefone Invalido - 11 caracteres
+      </small>
+      <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('required')">
+        Campo obrigatorio
+    </small>
+    </div>
+
+    <!-- EMAIL -->
+    <input type="email" placeholder="Digite seu email" formControlName='email'
+    [class.valid]="formContato.controls['email'].valid"
+    [class.invalid]="formContato.controls['email'].invalid && (
+      formContato.controls['email'].dirty || formContato.controls['email'].touched)"
+    >
+    <div class="mensagemFeedback" *ngIf="formContato.controls['email'].invalid && (
+      formContato.controls['email'].dirty || formContato.controls['email'].touched)">
+      <small class="error-message" *ngIf="formContato.controls['email'].hasError('email')">
+          Email invalido
+      </small>
+      <small class="error-message" *ngIf="formContato.controls['email'].hasError('required')">
+        Campo obrigatorio
+    </small>
+    </div>
+
+    <textarea maxlength="300" placeholder="Digite sua mensagem"
+    rows="4"
+    formControlName='mensagem'
+    [class.valid]="formContato.controls['mensagem'].valid"
+    [class.invalid]="formContato.controls['mensagem'].invalid && (
+      formContato.controls['mensagem'].dirty || formContato.controls['mensagem'].touched)"
+    ></textarea>
+    <div class="mensagemFeedback" *ngIf="formContato.controls['mensagem'].invalid && (
+      formContato.controls['mensagem'].dirty || formContato.controls['mensagem'].touched)">
+      <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('minlength')">
+          Mensagem com no minimo 20 caracteres
+      </small>
+      <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('required')">
+        Campo obrigatorio
+    </small>
+    </div>
+    <button type="submit" [disabled]="formContato.invalid" >Enviar</button>
+  </form>
+
+  <address>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63760.48808177611!2d-60.696561499999994!3d2.807199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d9305cacbaaa4db%3A0xb72e65c7a9d75f45!2sBoa%20Vista%2C%20RR!5e0!3m2!1spt-BR!2sbr!4v1656536056467!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p>Boa Vista RR</p>
+  </address>
+</section>

@@ -1,0 +1,30 @@
+<header class="main-header">
+  <h1 class="main-header_title">
+    <span class="main-header_title--blue">Marquinhos</span>
+    <span class="main-header_title--orange">Informatica</span>
+  </h1>
+  <div class="container-menu">
+  <nav class="main-header_menu">
+    <ul>
+      <li>
+        <a href="#">Produtos</a>
+      </li>
+      <li>
+        <a  routerLink="/carrinho">
+          <i class="fa-solid fa-cart-shopping"></i>
+          Carrinho
+          <span class="badge-carrinho">
+            {{carrinho.obterCarrinho().length}}
+          </span>
+        </a>
+      </li>
+      <li><a  routerLink="/contato">Contato</a></li>
+      <li><a href="#"> <i class="fa-brands fa-facebook-square"></i> </a></li>
+      <li><a href="#"> <i class="fa-brands fa-instagram-square"></i> </a></li>
+      <li><a href="#"> <i class="fa-brands fa-twitter-square"></i> </a></li>
+      <li><a href="#"> <i class="fa-brands fa-linkedin"></i> </a></li>
+    </ul>
+  </nav>
+  <app-barra-pesquisa></app-barra-pesquisa>
+</div>
+</header>
